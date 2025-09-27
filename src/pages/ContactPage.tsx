@@ -13,8 +13,8 @@ const contactInfo = [
   {
     icon: EnvelopeIcon,
     title: 'Email Us',
-    description: 'contact@Trinowa.com',
-    link: 'mailto:contact@Trinowa.com',
+    description: 'info@Trinowa.com',
+    link: 'mailto:info@Trinowa.com',
     linkText: 'Send us an email',
   },
   {
