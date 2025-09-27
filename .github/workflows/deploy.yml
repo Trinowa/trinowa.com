@@ -8,9 +8,10 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
+  deployments: write
 
 # Allow only one concurrent deployment
 concurrency:
@@ -23,7 +24,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
+      - name: Debug Info
+        run: |
+          echo "GitHub Repository: ${{ github.repository }}"
+          echo "GitHub Actor: ${{ github.actor }}"
+          echo "GitHub Ref: ${{ github.ref }}"
+          echo "GitHub SHA: ${{ github.sha }}"
+          echo "Runner OS: ${{ runner.os }}"
+          ls -la
+          
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -36,7 +48,14 @@ jobs:
       - name: Build
         run: yarn build
         env:
-          BASE_URL: "/it-consultancy-website/"
+          BASE_URL: "/trinowa.com/"
+
+      - name: Check build output
+        run: |
+          echo "Checking build output directory"
+          ls -la dist
+          echo "Checking index.html"
+          cat dist/index.html | head -n 20
 
       - name: Setup Pages
         uses: actions/configure-pages@v3

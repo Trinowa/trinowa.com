@@ -33,8 +33,8 @@ A modern, responsive website for Trinowa IT Tech Solutions Services built with R
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/Trinowa-Tech Solutions.git
-   cd Trinowa-Tech Solutions
+   git clone https://github.com/Trinowa/trinowa.com.git
+   cd trinowa.com
    ```
 
 2. Install dependencies:
@@ -109,7 +109,7 @@ This project includes a GitHub Actions workflow that automatically builds and de
 2. Go to your repository settings > Pages
 3. Under "Source", select "GitHub Actions"
 4. The site will be automatically deployed on each push to the main branch
-5. Access your site at `https://[your-username].github.io/it-consultancy-website/`
+5. Access your site at `https://trinowa.github.io/trinowa.com/`
 
 ### Netlify
 
