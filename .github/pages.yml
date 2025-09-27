@@ -1,0 +1,3 @@
+build:
+  skip: false
+  artifact: ./dist

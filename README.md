@@ -109,7 +109,11 @@ This project includes a GitHub Actions workflow that automatically builds and de
 2. Go to your repository settings > Pages
 3. Under "Source", select "GitHub Actions"
 4. The site will be automatically deployed on each push to the main branch
-5. Access your site at `https://trinowa.github.io/trinowa.com/`
+5. Access your site at one of these URLs:
+   - With custom domain: `https://trinowa.com`
+   - Without custom domain: `https://trinowa.github.io`
+
+**Note:** If using a custom domain, make sure to configure DNS settings with your domain provider.
 
 ### Netlify
 
