@@ -36,8 +36,6 @@ jobs:
       
       - name: Build
         run: yarn build
-        env:
-          BASE_URL: "/"
       
       - name: Debug build output
         run: |
