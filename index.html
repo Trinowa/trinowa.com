@@ -1,1123 +1,582 @@
-/* ===== TRINOWA - GLOBAL STYLES ===== */
-:root {
-  --navy: #0D1B2A;
-  --navy-light: #1B2D45;
-  --blue-primary: #1E6FBA;
-  --blue-bright: #3EA8DE;
-  --blue-accent: #5CC8FF;
-  --teal: #00C9A7;
-  --purple: #7B61FF;
-  --orange: #FF6B35;
-  --pink: #FF4593;
-  --yellow: #FFCF56;
-  --white: #FFFFFF;
-  --gray-100: #F5F7FA;
-  --gray-200: #E4E7EB;
-  --gray-300: #B0B8C4;
-  --gray-800: #2D3748;
-  --gradient-hero: linear-gradient(135deg, #0D1B2A 0%, #1B2D45 40%, #1E3A5F 100%);
-  --gradient-card: linear-gradient(145deg, rgba(30,111,186,0.08), rgba(62,168,222,0.04));
-  --gradient-accent: linear-gradient(135deg, #3EA8DE, #7B61FF);
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-  --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
-  --shadow-lg: 0 8px 40px rgba(0,0,0,0.18);
-  --shadow-glow: 0 0 30px rgba(62,168,222,0.2);
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
-  --radius-xl: 32px;
-  --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
+<!DOCTYPE html>
+<html lang="en">
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trinowa – Mainframe Training & Infrastructure Services</title>
+  <meta name="description"
+    content="Trinowa is a specialist mainframe systems programming and training provider with 18+ years experience in banking, transportation, and mission-critical industries.">
 
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
 
-body {
-  font-family: 'Inter', sans-serif;
-  color: var(--gray-800);
-  background: var(--white);
-  overflow-x: hidden;
-  line-height: 1.7;
-}
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-/* ===== SCROLLBAR ===== */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--gray-100); }
-::-webkit-scrollbar-thumb { background: var(--blue-primary); border-radius: 4px; }
+  <!-- AOS Animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
-/* ===== TYPOGRAPHY ===== */
-h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; font-weight: 700; line-height: 1.2; }
-h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
-h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
-h3 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
 
-.section-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--blue-bright);
-  margin-bottom: 12px;
-}
-.section-label::before {
-  content: '';
-  display: inline-block;
-  width: 28px;
-  height: 3px;
-  background: var(--gradient-accent);
-  border-radius: 2px;
-}
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="logo.png">
+</head>
 
-.section-title {
-  margin-bottom: 16px;
-  color: var(--navy);
-}
-.section-desc {
-  max-width: 680px;
-  margin: 0 auto 48px;
-  color: var(--gray-300);
-  font-size: 1.05rem;
-}
+<body>
 
-.highlight { color: var(--blue-bright); }
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="navbar-brand">
+        <img src="logo.png" alt="Trinowa Logo">
+        <span>TRINOWA</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#training">Training</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-/* ===== BUTTONS ===== */
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 32px;
-  background: var(--gradient-accent);
-  color: var(--white);
-  border: none;
-  border-radius: 50px;
-  font-family: 'Outfit', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #7B61FF, #3EA8DE);
-  opacity: 0;
-  transition: var(--transition);
-  z-index: -1;
-}
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(62,168,222,0.4); }
-.btn-primary:hover::before { opacity: 1; }
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="hero-content container">
+      <div class="hero-grid">
+        <div class="hero-text" data-aos="fade-right" data-aos-duration="1000">
+          <span class="section-label">Enterprise Mainframe Experts</span>
+          <h1>Build Confident,<br>Console‑Ready<br><span class="highlight">Mainframe Teams</span></h1>
+          <p>Trinowa is a specialist provider of Mainframe Systems Programming Services and Enterprise Training,
+            delivering deep technical expertise across production environments in banking, transportation, insurance,
+            and other mission-critical industries. With over 18+ years of real-world mainframe infrastructure
+            experience.</p>
+          <div class="hero-buttons">
+            <a href="#training" class="btn-primary">Explore Training <i class="fas fa-arrow-right"></i></a>
+            <a href="#contact" class="btn-outline">Contact Us <i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="hero-image" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+          <div class="hero-glow"></div>
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80"
+            alt="IBM z16 Mainframe Data Center" loading="eager">
+        </div>
+      </div>
+    </div>
+  </section>
 
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 32px;
-  background: transparent;
-  color: var(--white);
-  border: 2px solid rgba(255,255,255,0.3);
-  border-radius: 50px;
-  font-family: 'Outfit', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  transition: var(--transition);
-}
-.btn-outline:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: var(--blue-bright);
-  transform: translateY(-3px);
-}
+  <!-- ===== STATS ===== -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="stat-number" data-count="18">0+</div>
+          <div class="stat-label">Years in Mainframe Infrastructure</div>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-number" data-count="7">0+</div>
+          <div class="stat-label">Specialized Training Tracks</div>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat-number" data-count="100">0%</div>
+          <div class="stat-label">Hands‑On Focused Learning</div>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="stat-number">Global</div>
+          <div class="stat-label">Remote & On‑Site Delivery</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* ===== NAVBAR ===== */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  padding: 16px 0;
-  transition: var(--transition);
-}
-.navbar.scrolled {
-  background: rgba(13, 27, 42, 0.95);
-  backdrop-filter: blur(20px);
-  padding: 10px 0;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.2);
-}
-.navbar .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-}
-.navbar-brand img {
-  height: 44px;
-  width: auto;
-}
-.navbar-brand span {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--white);
-  letter-spacing: 1px;
-}
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 36px;
-  list-style: none;
-}
-.nav-links a {
-  color: rgba(255,255,255,0.8);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: var(--transition);
-  position: relative;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--gradient-accent);
-  transition: var(--transition);
-}
-.nav-links a:hover { color: var(--white); }
-.nav-links a:hover::after { width: 100%; }
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual" data-aos="fade-right" data-aos-duration="800">
+          <div class="about-card-main">
+            <i class="fas fa-server"></i>
+            <h3>Mission‑Critical Expertise</h3>
+            <p>Trinowa brings deep, real‑world experience across production control, scheduling, systems programming,
+              networking, and disaster recovery—keeping mission‑critical workloads running around the clock.</p>
+          </div>
+          <div class="about-floating-badge">
+            <div class="badge-icon"><i class="fas fa-award"></i></div>
+            <div class="badge-text">
+              <span>18+ Years</span>
+              <small>Industry Experience</small>
+            </div>
+          </div>
+        </div>
+        <div class="about-text" data-aos="fade-left" data-aos-duration="800">
+          <span class="section-label">About Trinowa</span>
+          <h2 class="section-title">Your Partner in Mainframe Excellence</h2>
+          <p>Trinowa is a specialist provider of Mainframe Systems Programming Services and Enterprise Training,
+            delivering deep technical expertise across production environments in banking, transportation, insurance,
+            and other mission-critical industries. With over 18+ years of real-world mainframe infrastructure
+            experience, we support and develop high-performance teams in Systems Programming (z/OS), Production Control
+            & Scheduling, Security Administration (RACF/IAM), Networking (z/OS Communications Server), Middleware (CICS,
+            MQ, Db2), and Disaster Recovery & Resilience.</p>
+          <p>We combine hands-on operational knowledge with structured, outcome-driven learning programs to create
+            professionals who are confident on the console, in change windows, during audits, and under disaster
+            recovery pressure.</p>
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="feature-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+              <div>
+                <h4>Production-Aligned Curriculum</h4>
+                <p>We do not teach theory in isolation — we train for live production environments.</p>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="feature-icon"><i class="fas fa-globe-americas"></i></div>
+              <div>
+                <h4>Global Delivery</h4>
+                <p>Remote & On-Site Delivery globally.</p>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
+              <div>
+                <h4>100% Hands-On Focused Learning</h4>
+                <p>Practical, console-ready training.</p>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+              <div>
+                <h4>DR & Audit-Ready Best Practices</h4>
+                <p>Built from real‑world operations.</p>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="feature-icon"><i class="fas fa-terminal"></i></div>
+              <div>
+                <h4>Dedicated Mainframe Environment</h4>
+                <p>We also provide a dedicated Mainframe Environment ID for hands-on practice, offering real-world
+                  exposure to systems.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-.nav-cta {
-  padding: 10px 24px !important;
-  background: var(--gradient-accent);
-  border-radius: 50px;
-  color: var(--white) !important;
-  font-weight: 600 !important;
-}
-.nav-cta::after { display: none !important; }
-.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(62,168,222,0.4); }
+  <!-- ===== TRAINING ===== -->
+  <section class="training" id="training">
+    <div class="container">
+      <div class="training-header" data-aos="fade-up">
+        <span class="section-label">Enterprise Training Programs</span>
+        <h2 class="section-title">Modular Mainframe Systems Programming Training</h2>
+        <p class="section-desc">Each track is designed around real production scenarios, audit expectations, and DR
+          readiness.</p>
+      </div>
 
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 8px;
-  background: none;
-  border: none;
-}
-.hamburger span {
-  display: block;
-  width: 26px;
-  height: 2.5px;
-  background: var(--white);
-  border-radius: 2px;
-  transition: var(--transition);
-}
-.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+      <div class="training-grid">
 
-/* ===== HERO ===== */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  background: var(--gradient-hero);
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(62,168,222,0.15), transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(123,97,255,0.1), transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(0,201,167,0.05), transparent 60%);
-  z-index: 1;
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-.hero-text { color: var(--white); }
-.hero-text .section-label { margin-bottom: 16px; }
-.hero-text h1 {
-  margin-bottom: 20px;
-  background: linear-gradient(135deg, #fff 40%, var(--blue-accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.hero-text p {
-  font-size: 1.15rem;
-  color: rgba(255,255,255,0.75);
-  margin-bottom: 36px;
-  max-width: 520px;
-  line-height: 1.8;
-}
-.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+        <!-- Card 1 -->
+        <div class="training-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+            <span class="card-number">Track 01</span>
+            <h3>Mainframe Foundations</h3>
+            <p class="card-audience"><i class="fas fa-users"></i> Early Talent, Graduates, Lateral Hires New to IBM Z
+            </p>
+            <ul class="card-topics">
+              <li>Introduction to enterprise computing & IBM Z</li>
+              <li>z/OS overview, ISPF navigation, datasets & utilities</li>
+              <li>Basic JCL structure, job submission & monitoring</li>
+              <li>Intro to JES2, Db2, CICS, and MQ concepts</li>
+            </ul>
+            <div class="card-outcome">
+              <h4>Outcomes</h4>
+              <p>Participants confidently Navigate z/OS, Submit and monitor jobs, Interpret job output, Understand core
+                mainframe architecture.</p>
+            </div>
+          </div>
+        </div>
 
-.hero-image {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.hero-image img {
-  width: 100%;
-  max-width: 520px;
-  border-radius: var(--radius-lg);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-  position: relative;
-  z-index: 2;
-}
-.hero-glow {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(62,168,222,0.3), transparent 70%);
-  border-radius: 50%;
-  z-index: 1;
-  animation: pulse 4s ease-in-out infinite;
-}
+        <!-- Card 2 -->
+        <div class="training-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-icon"><i class="fas fa-calendar-check"></i></div>
+            <span class="card-number">Track 02</span>
+            <h3>Mainframe Operations & Scheduling</h3>
+            <p class="card-audience"><i class="fas fa-users"></i> Operators, Production Control, NOC, L1/L2 Support</p>
+            <ul class="card-topics">
+              <li>Console operations & incident handling</li>
+              <li>Job scheduling & dependency management</li>
+              <li>JES2 commands & SDSF monitoring</li>
+              <li>Change & release execution best practices</li>
+            </ul>
+            <div class="card-outcome">
+              <h4>Outcomes</h4>
+              <p>Teams can Manage daily production flows, Respond to alerts, Execute runbooks, Maintain SLA stability.
+              </p>
+            </div>
+          </div>
+        </div>
 
-/* Floating particles */
-.particle {
-  position: absolute;
-  border-radius: 50%;
-  z-index: 0;
-  animation: float 6s ease-in-out infinite;
-}
-.particle:nth-child(1) { width: 8px; height: 8px; background: var(--blue-accent); top: 15%; left: 10%; animation-delay: 0s; }
-.particle:nth-child(2) { width: 6px; height: 6px; background: var(--teal); top: 70%; left: 15%; animation-delay: 1s; }
-.particle:nth-child(3) { width: 10px; height: 10px; background: var(--purple); top: 25%; right: 5%; animation-delay: 2s; }
-.particle:nth-child(4) { width: 5px; height: 5px; background: var(--orange); top: 80%; right: 10%; animation-delay: 3s; }
-.particle:nth-child(5) { width: 7px; height: 7px; background: var(--yellow); top: 45%; left: 5%; animation-delay: 1.5s; }
+        <!-- Card 3 -->
+        <div class="training-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-icon"><i class="fas fa-microchip"></i></div>
+            <span class="card-number">Track 03</span>
+            <h3>z/OS Basics – Systems Programmers</h3>
+            <p class="card-audience"><i class="fas fa-users"></i> Junior / Aspiring Systems Programmers</p>
+            <ul class="card-topics">
+              <li>z/OS architecture & address spaces</li>
+              <li>Storage & workload management</li>
+              <li>PARMLIB, PROCLIB, SMP/E maintenance</li>
+              <li>IPL, shutdown, JES subsystem overview</li>
+              <li>WLM, RMF & availability concepts</li>
+            </ul>
+            <div class="card-outcome">
+              <h4>Outcomes</h4>
+              <p>Participants can Assist with IPLs, Manage parameter updates, Support maintenance cycles, Conduct basic
+                performance reviews.</p>
+            </div>
+          </div>
+        </div>
 
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
-  50% { transform: translateY(-25px) rotate(180deg); opacity: 1; }
-}
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.15); opacity: 0.8; }
-}
+        <!-- Card 4 -->
+        <div class="training-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-icon"><i class="fas fa-lock"></i></div>
+            <span class="card-number">Track 04</span>
+            <h3>IAM (RACF) – Security Administration</h3>
+            <p class="card-audience"><i class="fas fa-users"></i> Security Admins, Systems Programmers, Auditors</p>
+            <ul class="card-topics">
+              <li>SAF & RACF architecture</li>
+              <li>User & group administration</li>
+              <li>Dataset & resource protection</li>
+              <li>SETROPTS & auditing</li>
+              <li>SMF reporting & exposure to security tools</li>
+            </ul>
+            <div class="card-outcome">
+              <h4>Outcomes</h4>
+              <p>Teams can Secure enterprise resources, Manage RACF profiles, Support audits confidently, Strengthen
+                mainframe security posture.</p>
+            </div>
+          </div>
+        </div>
 
-/* ===== STATS ===== */
-.stats {
-  position: relative;
-  z-index: 10;
-  margin-top: -60px;
-}
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-.stat-card {
-  background: var(--white);
-  border-radius: var(--radius-md);
-  padding: 36px 24px;
-  text-align: center;
-  box-shadow: var(--shadow-lg);
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-}
-.stat-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  border-radius: 4px 4px 0 0;
-}
-.stat-card:nth-child(1)::before { background: var(--blue-bright); }
-.stat-card:nth-child(2)::before { background: var(--teal); }
-.stat-card:nth-child(3)::before { background: var(--purple); }
-.stat-card:nth-child(4)::before { background: var(--orange); }
+        <!-- Card 5 -->
+        <div class="training-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-icon"><i class="fas fa-database"></i></div>
+            <span class="card-number">Track 05</span>
+            <h3>CICS / MQ / Db2 – Systems Programming</h3>
+            <p class="card-audience"><i class="fas fa-users"></i> z/OS Systems Programmers & Systems DBAs</p>
+            <ul class="card-topics">
+              <li>CICS region design & resource management</li>
+              <li>MQ architecture & queue management</li>
+              <li>Db2 subsystem structure & performance tuning</li>
+              <li>Installation, migration & DR alignment</li>
+            </ul>
+            <div class="card-outcome">
+              <h4>Outcomes</h4>
+              <p>Participants can Install & configure subsystems, Manage performance & availability, Troubleshoot
+                production issues, Align middleware with DR strategies.</p>
+            </div>
+          </div>
+        </div>
 
-.stat-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg), var(--shadow-glow);
-}
-.stat-number {
-  font-family: 'Outfit', sans-serif;
-  font-size: 2.6rem;
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-.stat-card:nth-child(1) .stat-number { color: var(--blue-bright); }
-.stat-card:nth-child(2) .stat-number { color: var(--teal); }
-.stat-card:nth-child(3) .stat-number { color: var(--purple); }
-.stat-card:nth-child(4) .stat-number { color: var(--orange); }
+        <!-- Card 6 -->
+        <div class="training-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-icon"><i class="fas fa-network-wired"></i></div>
+            <span class="card-number">Track 06</span>
+            <h3>Mainframe Networking (z/OS Communications Server)</h3>
+            <p class="card-audience"><i class="fas fa-users"></i> Systems Programmers & Network Specialists</p>
+            <ul class="card-topics">
+              <li>TCP/IP architecture on IBM Z</li>
+              <li>z/OS Communications Server configuration</li>
+              <li>VTAM/SNA concepts</li>
+              <li>Network problem determination</li>
+            </ul>
+            <div class="card-outcome">
+              <h4>Outcomes</h4>
+              <p>Teams can Configure TCP/IP stacks, Manage connectivity, Troubleshoot application network issues.</p>
+            </div>
+          </div>
+        </div>
 
-.stat-label {
-  font-size: 0.9rem;
-  color: var(--gray-300);
-  font-weight: 500;
-}
+        <!-- Card 7 -->
+        <div class="training-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-icon"><i class="fas fa-shield-virus"></i></div>
+            <span class="card-number">Track 07</span>
+            <h3>Mainframe Disaster Recovery</h3>
+            <p class="card-audience"><i class="fas fa-users"></i> z/OS Systems Programmers, Storage Teams, Db2 Admins,
+              Operations Leads</p>
+            <ul class="card-topics">
+              <li>RTO / RPO planning</li>
+              <li>Hot / Warm / Cold site strategies</li>
+              <li>z/OS & Db2 recovery techniques</li>
+              <li>Storage replication & failover patterns</li>
+              <li>DR drill design & execution</li>
+            </ul>
+            <div class="card-outcome">
+              <h4>Outcomes</h4>
+              <p>Participants can Lead DR exercises, Execute recovery runbooks, Validate recovery capabilities, Ensure
+                business continuity readiness.</p>
+            </div>
+          </div>
+        </div>
 
-/* ===== ABOUT ===== */
-.about {
-  padding: 100px 0;
-  background: var(--gray-100);
-}
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.about-visual {
-  position: relative;
-}
-.about-card-main {
-  background: var(--gradient-hero);
-  border-radius: var(--radius-lg);
-  padding: 48px;
-  color: var(--white);
-  position: relative;
-  overflow: hidden;
-}
-.about-card-main::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -30%;
-  width: 250px;
-  height: 250px;
-  background: radial-gradient(circle, rgba(62,168,222,0.2), transparent 70%);
-  border-radius: 50%;
-}
-.about-card-main i {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  background: var(--gradient-accent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.about-card-main h3 {
-  font-size: 1.4rem;
-  margin-bottom: 16px;
-}
-.about-card-main p {
-  color: rgba(255,255,255,0.75);
-  line-height: 1.8;
-}
-.about-floating-badge {
-  position: absolute;
-  bottom: -20px;
-  right: -20px;
-  background: var(--white);
-  border-radius: var(--radius-md);
-  padding: 20px 28px;
-  box-shadow: var(--shadow-lg);
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  z-index: 2;
-}
-.about-floating-badge .badge-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--teal), #00E5BF);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-  font-size: 1.3rem;
-}
-.about-floating-badge .badge-text span {
-  display: block;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 700;
-  font-size: 1.3rem;
-  color: var(--navy);
-}
-.about-floating-badge .badge-text small {
-  color: var(--gray-300);
-  font-size: 0.82rem;
-}
+      </div>
+    </div>
+  </section>
 
-.about-text h2 { margin-bottom: 20px; }
-.about-text > p {
-  color: var(--gray-300);
-  margin-bottom: 32px;
-  font-size: 1.05rem;
-}
-.about-features {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-.about-feature {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-}
-.about-feature .feature-icon {
-  width: 42px;
-  height: 42px;
-  min-width: 42px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-}
-.about-feature:nth-child(1) .feature-icon { background: rgba(62,168,222,0.12); color: var(--blue-bright); }
-.about-feature:nth-child(2) .feature-icon { background: rgba(0,201,167,0.12); color: var(--teal); }
-.about-feature:nth-child(3) .feature-icon { background: rgba(123,97,255,0.12); color: var(--purple); }
-.about-feature:nth-child(4) .feature-icon { background: rgba(255,107,53,0.12); color: var(--orange); }
-.about-feature:nth-child(5) .feature-icon { background: rgba(255,69,147,0.12); color: var(--pink); }
+  <!-- ===== SERVICES ===== -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-header" data-aos="fade-up">
+        <span class="section-label">Our Services</span>
+        <h2 class="section-title">Mainframe Infrastructure Services</h2>
+        <p class="section-desc">End‑to‑end mainframe systems programming, operations, and managed services for
+          enterprise environments.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="service-icon"><i class="fas fa-cogs"></i></div>
+          <h3>z/OS Systems Programming Support</h3>
+          <p>z/OS installation, migration, maintenance, PARMLIB tuning, and subsystem configuration.</p>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
+          <h3>Production Control & Scheduling Optimization</h3>
+          <p>Job scheduling, batch management, calendar configuration, and automation of daily operational workflows.
+          </p>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>RACF / IAM Security Administration</h3>
+          <p>RACF implementation, security auditing, compliance support, and access control governance.</p>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="service-icon"><i class="fas fa-database"></i></div>
+          <h3>CICS, MQ, Db2 Subsystem Support</h3>
+          <p>Installation, configuration, and performance tuning for CICS, MQ, and Db2 subsystems.</p>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-icon"><i class="fas fa-network-wired"></i></div>
+          <h3>z/OS Networking (TCP/IP, VTAM)</h3>
+          <p>TCP/IP configuration, VTAM/SNA management, and network problem determination.</p>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon"><i class="fas fa-sync-alt"></i></div>
+          <h3>Mainframe Disaster Recovery Planning & Execution</h3>
+          <p>DR strategy design, runbook development, and structured DR drills.</p>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="service-icon"><i class="fas fa-check-circle"></i></div>
+          <h3>Operational Readiness & Runbook Standardization</h3>
+          <p>Standardizing runbooks and ensuring operational readiness for seamless production integration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-.about-feature h4 {
-  font-size: 0.95rem;
-  margin-bottom: 4px;
-  color: var(--navy);
-}
-.about-feature p {
-  font-size: 0.85rem;
-  color: var(--gray-300);
-}
+  <!-- ===== WHY US ===== -->
+  <section class="why-us" id="why-us">
+    <div class="container">
+      <div class="why-us-header" data-aos="fade-up">
+        <span class="section-label">Why Trinowa</span>
+        <h2 class="section-title">What Sets Us Apart</h2>
+        <p class="section-desc">Built by mainframe veterans who have managed production environments, not just read
+          about them.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="why-icon"><i class="fas fa-user-tie"></i></div>
+          <h3>18+ Years in Mainframe Infrastructure Services</h3>
+          <p>Deep expertise across production environments.</p>
+        </div>
+        <div class="why-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="why-icon"><i class="fas fa-layer-group"></i></div>
+          <h3>7+ Specialized Training Tracks</h3>
+          <p>Covering z/OS, Operations, Security, Middleware, Networking, and DR.</p>
+        </div>
+        <div class="why-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="why-icon"><i class="fas fa-laptop-code"></i></div>
+          <h3>100% Hands-On Focused Learning</h3>
+          <p>We train for live production environments, not just theory.</p>
+        </div>
+        <div class="why-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="why-icon"><i class="fas fa-globe"></i></div>
+          <h3>Global Remote & On-Site Delivery</h3>
+          <p>Training delivered where you need it.</p>
+        </div>
+        <div class="why-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="why-icon"><i class="fas fa-industry"></i></div>
+          <h3>Production-Aligned Curriculum</h3>
+          <p>Designed around real production scenarios and audit expectations.</p>
+        </div>
+        <div class="why-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="why-icon"><i class="fas fa-shield-check"></i></div>
+          <h3>DR & Audit-Ready Best Practices</h3>
+          <p>Preparing teams for high-pressure situations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* ===== TRAINING PROGRAMS ===== */
-.training {
-  padding: 100px 0;
-  background: var(--white);
-}
-.training-header {
-  text-align: center;
-  margin-bottom: 56px;
-}
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-header" data-aos="fade-up">
+        <span class="section-label">Get in Touch</span>
+        <h2 class="section-title">Let's Discuss Your Mainframe Needs</h2>
+        <p class="section-desc">Website: www.trinowa.com | Email: info@trinowa.com | Phone: +91 40 4533 4103</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info-cards" data-aos="fade-right" data-aos-duration="800">
+          <div class="contact-info-card">
+            <div class="contact-info-icon"><i class="fas fa-globe"></i></div>
+            <div>
+              <h4>Website</h4>
+              <a href="https://www.trinowa.com" target="_blank">www.trinowa.com</a>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:info@trinowa.com">info@trinowa.com</a>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-info-icon"><i class="fas fa-phone-alt"></i></div>
+            <div>
+              <h4>Phone</h4>
+              <a href="tel:+914045334103">+91 40 4533 4103</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form" data-aos="fade-left" data-aos-duration="800">
+          <h3>Send Us a Message</h3>
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="you@company.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject">
+                <option value="">Select a topic</option>
+                <option>Training Inquiry</option>
+                <option>Systems Programming Services</option>
+                <option>Disaster Recovery Planning</option>
+                <option>Security / RACF Consulting</option>
+                <option>General Inquiry</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Tell us about your requirements…" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary form-submit">Send Message <i
+                class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
-.training-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
-  gap: 28px;
-}
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="#" class="navbar-brand">
+            <img src="logo.png" alt="Trinowa Logo">
+            <span>TRINOWA</span>
+          </a>
+          <p>Specialist mainframe systems programming and training provider — building confident, console‑ready teams
+            for mission‑critical environments.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#training">Training</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Training Tracks</h4>
+          <ul>
+            <li><a href="#training">Foundations</a></li>
+            <li><a href="#training">Operations</a></li>
+            <li><a href="#training">z/OS Systems</a></li>
+            <li><a href="#training">RACF Security</a></li>
+            <li><a href="#training">CICS/MQ/DB2</a></li>
+            <li><a href="#training">Networking</a></li>
+            <li><a href="#training">Disaster Recovery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-newsletter">
+          <h4>Stay Updated</h4>
+          <p>Subscribe to get the latest on training schedules, mainframe insights, and Trinowa news.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Trinowa. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-.training-card {
-  background: var(--white);
-  border-radius: var(--radius-md);
-  padding: 0;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-  overflow: hidden;
-  border: 1px solid var(--gray-200);
-  display: flex;
-  flex-direction: column;
-}
-.training-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
-  border-color: transparent;
-}
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
 
-.card-accent {
-  height: 5px;
-  width: 100%;
-}
-.training-card:nth-child(1) .card-accent { background: linear-gradient(90deg, var(--blue-bright), var(--blue-accent)); }
-.training-card:nth-child(2) .card-accent { background: linear-gradient(90deg, var(--teal), #00E5BF); }
-.training-card:nth-child(3) .card-accent { background: linear-gradient(90deg, var(--purple), #9B8AFF); }
-.training-card:nth-child(4) .card-accent { background: linear-gradient(90deg, var(--orange), #FF9060); }
-.training-card:nth-child(5) .card-accent { background: linear-gradient(90deg, var(--pink), #FF70B0); }
-.training-card:nth-child(6) .card-accent { background: linear-gradient(90deg, var(--yellow), #FFE066); }
-.training-card:nth-child(7) .card-accent { background: linear-gradient(90deg, #00BCD4, #26C6DA); }
+  <!-- AOS Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
-.card-body {
-  padding: 32px 28px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.card-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-.training-card:nth-child(1) .card-icon { background: rgba(62,168,222,0.12); color: var(--blue-bright); }
-.training-card:nth-child(2) .card-icon { background: rgba(0,201,167,0.12); color: var(--teal); }
-.training-card:nth-child(3) .card-icon { background: rgba(123,97,255,0.12); color: var(--purple); }
-.training-card:nth-child(4) .card-icon { background: rgba(255,107,53,0.12); color: var(--orange); }
-.training-card:nth-child(5) .card-icon { background: rgba(255,69,147,0.12); color: var(--pink); }
-.training-card:nth-child(6) .card-icon { background: rgba(255,207,86,0.15); color: #E6A800; }
-.training-card:nth-child(7) .card-icon { background: rgba(0,188,212,0.12); color: #00BCD4; }
+  <!-- Main Script -->
+  <script src="script.js"></script>
+</body>
 
-.card-number {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--gray-300);
-  margin-bottom: 8px;
-}
-.card-body h3 {
-  font-size: 1.2rem;
-  color: var(--navy);
-  margin-bottom: 8px;
-}
-.card-audience {
-  font-size: 0.82rem;
-  color: var(--blue-primary);
-  font-weight: 500;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.card-topics {
-  list-style: none;
-  margin-bottom: 20px;
-  flex: 1;
-}
-.card-topics li {
-  font-size: 0.88rem;
-  color: var(--gray-800);
-  padding: 6px 0;
-  padding-left: 22px;
-  position: relative;
-  line-height: 1.5;
-}
-.card-topics li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  font-weight: 700;
-  font-size: 0.8rem;
-}
-.training-card:nth-child(1) .card-topics li::before { color: var(--blue-bright); }
-.training-card:nth-child(2) .card-topics li::before { color: var(--teal); }
-.training-card:nth-child(3) .card-topics li::before { color: var(--purple); }
-.training-card:nth-child(4) .card-topics li::before { color: var(--orange); }
-.training-card:nth-child(5) .card-topics li::before { color: var(--pink); }
-.training-card:nth-child(6) .card-topics li::before { color: #E6A800; }
-.training-card:nth-child(7) .card-topics li::before { color: #00BCD4; }
-
-.card-outcome {
-  background: var(--gray-100);
-  border-radius: var(--radius-sm);
-  padding: 16px;
-  margin-top: auto;
-}
-.card-outcome h4 {
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--navy);
-  margin-bottom: 6px;
-}
-.card-outcome p {
-  font-size: 0.84rem;
-  color: var(--gray-300);
-  line-height: 1.6;
-}
-
-/* ===== SERVICES ===== */
-.services {
-  padding: 100px 0;
-  background: var(--navy);
-  position: relative;
-  overflow: hidden;
-}
-.services::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 10% 90%, rgba(62,168,222,0.08), transparent 40%),
-    radial-gradient(circle at 90% 10%, rgba(123,97,255,0.08), transparent 40%);
-}
-.services .container { position: relative; z-index: 2; }
-.services-header { text-align: center; margin-bottom: 56px; }
-.services-header .section-title { color: var(--white); }
-.services-header .section-desc { color: rgba(255,255,255,0.6); }
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-.service-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: var(--radius-md);
-  padding: 36px 28px;
-  transition: var(--transition);
-  backdrop-filter: blur(10px);
-}
-.service-card:hover {
-  background: rgba(255,255,255,0.1);
-  transform: translateY(-6px);
-  border-color: rgba(62,168,222,0.4);
-  box-shadow: 0 10px 40px rgba(62,168,222,0.15);
-}
-.service-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 22px;
-}
-.service-card:nth-child(1) .service-icon { background: rgba(62,168,222,0.2); color: var(--blue-accent); }
-.service-card:nth-child(2) .service-icon { background: rgba(0,201,167,0.2); color: var(--teal); }
-.service-card:nth-child(3) .service-icon { background: rgba(123,97,255,0.2); color: var(--purple); }
-.service-card:nth-child(4) .service-icon { background: rgba(255,107,53,0.2); color: var(--orange); }
-.service-card:nth-child(5) .service-icon { background: rgba(255,69,147,0.2); color: var(--pink); }
-.service-card:nth-child(6) .service-icon { background: rgba(255,207,86,0.2); color: var(--yellow); }
-
-.service-card h3 {
-  color: var(--white);
-  font-size: 1.2rem;
-  margin-bottom: 12px;
-}
-.service-card p {
-  color: rgba(255,255,255,0.6);
-  font-size: 0.92rem;
-  line-height: 1.7;
-}
-
-/* ===== WHY CHOOSE US ===== */
-.why-us {
-  padding: 100px 0;
-  background: var(--gray-100);
-}
-.why-us-header { text-align: center; margin-bottom: 56px; }
-
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-.why-card {
-  background: var(--white);
-  border-radius: var(--radius-md);
-  padding: 40px 32px;
-  text-align: center;
-  transition: var(--transition);
-  box-shadow: var(--shadow-sm);
-  position: relative;
-  overflow: hidden;
-}
-.why-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  transform: scaleX(0);
-  transition: var(--transition);
-}
-.why-card:nth-child(1)::after { background: var(--blue-bright); }
-.why-card:nth-child(2)::after { background: var(--teal); }
-.why-card:nth-child(3)::after { background: var(--purple); }
-.why-card:nth-child(4)::after { background: var(--orange); }
-.why-card:nth-child(5)::after { background: var(--pink); }
-.why-card:nth-child(6)::after { background: var(--yellow); }
-
-.why-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
-}
-.why-card:hover::after { transform: scaleX(1); }
-
-.why-icon {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.6rem;
-  margin: 0 auto 20px;
-}
-.why-card:nth-child(1) .why-icon { background: rgba(62,168,222,0.12); color: var(--blue-bright); }
-.why-card:nth-child(2) .why-icon { background: rgba(0,201,167,0.12); color: var(--teal); }
-.why-card:nth-child(3) .why-icon { background: rgba(123,97,255,0.12); color: var(--purple); }
-.why-card:nth-child(4) .why-icon { background: rgba(255,107,53,0.12); color: var(--orange); }
-.why-card:nth-child(5) .why-icon { background: rgba(255,69,147,0.12); color: var(--pink); }
-.why-card:nth-child(6) .why-icon { background: rgba(255,207,86,0.15); color: #E6A800; }
-
-.why-card h3 {
-  font-size: 1.1rem;
-  color: var(--navy);
-  margin-bottom: 10px;
-}
-.why-card p {
-  font-size: 0.9rem;
-  color: var(--gray-300);
-  line-height: 1.7;
-}
-
-/* ===== CONTACT ===== */
-.contact {
-  padding: 100px 0;
-  background: var(--white);
-}
-.contact-header { text-align: center; margin-bottom: 56px; }
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 60px;
-  align-items: start;
-}
-.contact-info-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.contact-info-card {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 28px;
-  background: var(--gray-100);
-  border-radius: var(--radius-md);
-  transition: var(--transition);
-}
-.contact-info-card:hover {
-  transform: translateX(8px);
-  box-shadow: var(--shadow-sm);
-}
-.contact-info-icon {
-  width: 56px;
-  height: 56px;
-  min-width: 56px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-}
-.contact-info-card:nth-child(1) .contact-info-icon { background: var(--gradient-accent); color: var(--white); }
-.contact-info-card:nth-child(2) .contact-info-icon { background: linear-gradient(135deg, var(--teal), #00E5BF); color: var(--white); }
-.contact-info-card:nth-child(3) .contact-info-icon { background: linear-gradient(135deg, var(--purple), #9B8AFF); color: var(--white); }
-
-.contact-info-card h4 {
-  font-size: 0.95rem;
-  color: var(--navy);
-  margin-bottom: 4px;
-}
-.contact-info-card p,
-.contact-info-card a {
-  font-size: 0.92rem;
-  color: var(--gray-300);
-  text-decoration: none;
-  transition: var(--transition);
-}
-.contact-info-card a:hover { color: var(--blue-primary); }
-
-.contact-form {
-  background: var(--gray-100);
-  border-radius: var(--radius-lg);
-  padding: 44px;
-}
-.contact-form h3 {
-  font-size: 1.4rem;
-  color: var(--navy);
-  margin-bottom: 28px;
-}
-.form-group {
-  margin-bottom: 20px;
-}
-.form-group label {
-  display: block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--navy);
-  margin-bottom: 6px;
-}
-.form-group input,
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  padding: 14px 18px;
-  border: 2px solid var(--gray-200);
-  border-radius: var(--radius-sm);
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  color: var(--gray-800);
-  background: var(--white);
-  transition: var(--transition);
-  outline: none;
-}
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-  border-color: var(--blue-bright);
-  box-shadow: 0 0 0 4px rgba(62,168,222,0.1);
-}
-.form-group textarea { resize: vertical; min-height: 120px; }
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-.form-submit {
-  width: 100%;
-  padding: 16px;
-  font-size: 1rem;
-}
-
-/* ===== FOOTER ===== */
-.footer {
-  background: var(--navy);
-  padding: 60px 0 0;
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-.footer-about .navbar-brand {
-  margin-bottom: 16px;
-}
-.footer-about p {
-  color: rgba(255,255,255,0.55);
-  font-size: 0.9rem;
-  line-height: 1.7;
-  margin-bottom: 20px;
-}
-.footer-social {
-  display: flex;
-  gap: 12px;
-}
-.footer-social a {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,0.6);
-  text-decoration: none;
-  transition: var(--transition);
-}
-.footer-social a:hover {
-  background: var(--gradient-accent);
-  color: var(--white);
-  transform: translateY(-3px);
-}
-
-.footer-col h4 {
-  color: var(--white);
-  font-size: 1rem;
-  margin-bottom: 22px;
-  position: relative;
-  padding-bottom: 12px;
-}
-.footer-col h4::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 30px;
-  height: 3px;
-  background: var(--gradient-accent);
-  border-radius: 2px;
-}
-.footer-col ul {
-  list-style: none;
-}
-.footer-col ul li { margin-bottom: 12px; }
-.footer-col ul a {
-  color: rgba(255,255,255,0.55);
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: var(--transition);
-}
-.footer-col ul a:hover { color: var(--blue-accent); padding-left: 6px; }
-
-.footer-newsletter p {
-  color: rgba(255,255,255,0.55);
-  font-size: 0.88rem;
-  margin-bottom: 16px;
-}
-.newsletter-form {
-  display: flex;
-  gap: 10px;
-}
-.newsletter-form input {
-  flex: 1;
-  padding: 12px 16px;
-  border: 2px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.05);
-  border-radius: 50px;
-  color: var(--white);
-  font-size: 0.9rem;
-  outline: none;
-  transition: var(--transition);
-}
-.newsletter-form input::placeholder { color: rgba(255,255,255,0.35); }
-.newsletter-form input:focus { border-color: var(--blue-bright); }
-.newsletter-form button {
-  padding: 12px 24px;
-  background: var(--gradient-accent);
-  border: none;
-  border-radius: 50px;
-  color: var(--white);
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  white-space: nowrap;
-}
-.newsletter-form button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(62,168,222,0.4); }
-
-.footer-bottom {
-  padding: 24px 0;
-  text-align: center;
-}
-.footer-bottom p {
-  color: rgba(255,255,255,0.4);
-  font-size: 0.85rem;
-}
-
-/* ===== BACK TO TOP ===== */
-.back-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--gradient-accent);
-  color: var(--white);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  box-shadow: var(--shadow-md);
-  transition: var(--transition);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-  z-index: 999;
-}
-.back-to-top.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-.back-to-top:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(62,168,222,0.5); }
-
-/* ===== CONTAINER ===== */
-.container {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1024px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-  .hero-image { order: -1; }
-  .hero-image img { max-width: 380px; }
-  .hero-text { text-align: center; }
-  .hero-text p { margin: 0 auto 36px; }
-  .hero-buttons { justify-content: center; }
-
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .about-grid { grid-template-columns: 1fr; gap: 40px; }
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .why-grid { grid-template-columns: repeat(2, 1fr); }
-  .contact-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: repeat(2, 1fr); }
-  .training-grid { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 280px;
-    height: 100vh;
-    background: var(--navy);
-    flex-direction: column;
-    padding: 100px 40px 40px;
-    gap: 24px;
-    transition: var(--transition);
-    box-shadow: -10px 0 30px rgba(0,0,0,0.3);
-  }
-  .nav-links.active { right: 0; }
-  .hamburger { display: flex; }
-
-  .hero { padding-top: 100px; min-height: auto; padding-bottom: 80px; }
-  .hero-image img { max-width: 300px; }
-
-  .stats { margin-top: -40px; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .stat-card { padding: 24px 16px; }
-  .stat-number { font-size: 2rem; }
-
-  .about, .training, .services, .why-us, .contact { padding: 70px 0; }
-
-  .services-grid { grid-template-columns: 1fr; }
-  .why-grid { grid-template-columns: 1fr; }
-  .training-grid { grid-template-columns: 1fr; }
-
-  .form-row { grid-template-columns: 1fr; }
-  .contact-form { padding: 28px; }
-  .footer-grid { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 480px) {
-  .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .stat-card { padding: 20px 12px; }
-  .stat-number { font-size: 1.6rem; }
-
-  .about-features { grid-template-columns: 1fr; }
-  .contact-form { padding: 20px; }
-  .about-floating-badge { position: relative; bottom: 0; right: 0; margin-top: 16px; }
-  .hero-buttons { flex-direction: column; align-items: center; }
-  .newsletter-form { flex-direction: column; }
-}
+</html>
